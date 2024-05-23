@@ -1,0 +1,89 @@
+.tech-bg {
+  background-image: url(../assets/background.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 100%;
+  mix-blend-mode: screen;
+}
+
+.tech-btn {
+  width: 40px;
+  height: 40px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  color: white;
+  font-family: Bellefair;
+  font-size: 16px;
+  transition: opacity 0.3s, transform 0.3s;
+}
+
+.tech-btn:hover {
+  border: 1px solid white;
+  transform: scale(1.1);
+}
+
+.tech-btn.active,
+.tech-btn:focus {
+  opacity: 1;
+  background-color: white;
+  color: var(--darkBlue);
+  border: none;
+}
+
+.tech-subtitle {
+  font-family: Barlow Condensed;
+  font-size: 14px;
+  line-height: normal;
+  letter-spacing: 2.362px;
+}
+
+.tech-title {
+  font-family: Bellefair;
+  font-size: 24px;
+  line-height: normal;
+}
+
+@media only screen and (min-width: 640px) {
+  .tech-bg {
+    background-image: url(../assets/background.jpg);
+    height: 100%;
+  }
+  .tech-btn {
+    width: 60px;
+    height: 60px;
+    font-size: 24px;
+  }
+  .tech-subtitle {
+    font-size: 16px;
+    letter-spacing: 2.7px;
+  }
+  .tech-title {
+    font-size: 40px;
+  }
+}
+
+@media only screen and (min-width: 769px) {
+  .tech-bg {
+    background-image: url(../assets/background.jpg);
+    height: 100vh;
+  }
+}
+
+@media only screen and (min-width: 1280px) {
+  .tech-title {
+    font-size: 56px;
+    text-align: start;
+  }
+}
+
+@media only screen and (min-width: 1920px) {
+  .tech-subtitle {
+    font-size: 28px;
+    letter-spacing: 2.7px;
+  }
+  .tech-title {
+    font-size: 65px;
+    text-align: start;
+  }
+}

@@ -1,0 +1,123 @@
+.destination-bg {
+  background-image: url(../assets/background.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 100%;
+  mix-blend-mode: screen;
+}
+
+.section-title {
+  font-family: Bellefair;
+  font-size: 56px;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.section-number {
+  color: var(--white);
+  font-family: Barlow Condensed;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 2.7px;
+  opacity: 0.25;
+}
+
+.section-heading {
+  color: var(--white);
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: 2.7px;
+  text-transform: uppercase;
+}
+
+.submenu-text {
+  color: var(--lightBlueGray);
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: 14px;
+  letter-spacing: 2.362px;
+}
+
+.submenu-btn {
+  position: relative;
+}
+
+.submenu-btn {
+  position: relative;
+}
+
+.submenu-btn::before {
+  content: "";
+  position: absolute;
+  bottom: -7px;
+  left: 4;
+  width: 0;
+  height: 3px;
+  background-color: var(--white);
+  opacity: 0.5;
+  transition: width 0.2s ease-out;
+}
+
+.submenu-btn:hover::before {
+  width: 100%;
+  background-color: var(--white);
+}
+.submenu-btn.active::before,
+.submenu-btn:focus::before {
+  opacity: 1;
+  width: 100%;
+}
+
+.submenu-btn.active {
+  color: white;
+  opacity: 1;
+}
+
+@media only screen and (min-width: 640px) {
+  .destination-bg {
+    background-image: url(../assets/background.jpg);
+    height: 100vh;
+  }
+  .section-heading,
+  .section-number {
+    font-size: 20px;
+    letter-spacing: 3.375px;
+  }
+  .section-title {
+    font-size: 80px;
+  }
+  .submenu-text {
+    font-size: 16px;
+    letter-spacing: 2.7px;
+  }
+}
+
+@media only screen and (min-width: 769px) {
+  .destination-bg {
+    background-image: url(../assets/background.jpg);
+  }
+  .section-heading,
+  .section-number {
+    font-size: 28px;
+    letter-spacing: 4.725px;
+  }
+  .section-title {
+    font-size: 100px;
+  }
+}
+
+@media only screen and (min-width: 1920px) {
+  .section-heading,
+  .section-number {
+    font-size: 40px;
+    letter-spacing: 5.3px;
+  }
+  .section-title {
+    font-size: 140px;
+  }
+  .submenu-text {
+    font-size: 28px;
+    letter-spacing: 2.7px;
+  }
+}
