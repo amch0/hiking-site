@@ -3,6 +3,7 @@ import { Pagination } from "@nextui-org/react";
 import { motion, AnimatePresence } from "framer-motion";
 import axios from "axios";
 import { formatDate } from "./dateFormatter";
+import { useNavigate } from "react-router-dom";
 
 const Places = () => {
   const [selectedTab, setSelectedTab] = useState("BiH");
@@ -10,6 +11,7 @@ const Places = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
   const headingRef = useRef(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     console.log("Selected Tab:", selectedTab);
@@ -113,7 +115,10 @@ const Places = () => {
                           {tour.remaining_space} slobodnih mjesta
                         </h2>
                         <div className="flex items-center flex-wrap ">
-                          <a className="text-indigo-300 inline-flex items-center md:mb-2 lg:mb-0">
+                          <a
+                            className="cursor-pointer text-indigo-300 inline-flex items-center md:mb-2 lg:mb-0"
+                            onClick={() => navigate(`/route/${tour.id}`)}
+                          >
                             Read More
                             <svg
                               className="w-4 h-4 ml-2"
