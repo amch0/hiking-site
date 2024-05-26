@@ -22,7 +22,7 @@ const emailVerification = async (req, res) => {
     await verifiedUser.save();
 
     // Redirect to login page
-    res.redirect("https://www.klix.ba/");
+    res.redirect("http://localhost:8080/login");
   } catch (err) {
     console.error("Error executing verification", err);
     res.status(500).send("Internal Server Error");

@@ -34,4 +34,9 @@ const UserTours = sequelize.define(
   {}
 );
 
+Users.hasMany(UserTours, { foreignKey: "userId" });
+Tours.hasMany(UserTours, { foreignKey: "tourId" });
+UserTours.belongsTo(Users, { foreignKey: "userId" });
+UserTours.belongsTo(Tours, { foreignKey: "tourId" });
+
 module.exports = UserTours;

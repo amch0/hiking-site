@@ -36,7 +36,7 @@ const forgotPassword = async (req, res) => {
       return res.status(404).json({ error: "User not found" });
     }
 
-    const resetLink = `http://localhost:5173/resetPassword`;
+    const resetLink = `http://localhost:8080/resetPassword`;
 
     const resetEmailMessage = await sendResetEmail(email, resetLink);
 
