@@ -33,13 +33,13 @@ const Login = () => {
 
   const handleLogin = async () => {
     if (!email || !password) {
-      toast.error("Please provide your credentials.", {
+      toast.error("Molimo navedite svoje podatke.", {
         duration: 3000,
       });
     }
     try {
-      const response = await axios.post("http://localhost:8080/users/login", {
-        mail: email,
+      const response = await axios.post("http://localhost:3000/users/login", {
+        email: email,
         password: password,
       });
 
@@ -47,20 +47,20 @@ const Login = () => {
       localStorage.setItem("token", response.data.token);
 
       // navigate("/");
-      window.location.href = "/myAcc";
+      window.location.href = "/";
     } catch (error) {
       if (error.response) {
         const status = error.response.status;
 
         if (status === 401) {
           toast.error(
-            "Invalid email or password. Please check your credentials and try again.",
+            "Nevažeći email ili šifra. Molimo provjerite svoje podatke i pokušajte ponovo.",
             {
               duration: 3000,
             }
           );
         } else if (status === 403) {
-          toast.error("Please verify your email.", {
+          toast.error("Molimo potvrdite svoju email adresu.", {
             duration: 3000,
           });
         }
@@ -70,21 +70,21 @@ const Login = () => {
 
   const handleForgotPassword = async () => {
     if (!forgotPasswordEmail) {
-      toast.error("Please provide your email.", {
+      toast.error("Molimo navedite svoju email adresu.", {
         duration: 3000,
       });
     }
-    const loadingToastId = toast.loading("Sending email");
+    const loadingToastId = toast.loading("Slanje email adrese");
 
     try {
       const response = await axios.post(
-        "http://localhost:8080/users/forgot-password",
+        "http://localhost:3000/users/forgotPassword",
         {
-          mail: forgotPasswordEmail,
+          email: forgotPasswordEmail,
         }
       );
       console.log("Forgot Password response:", response.data);
-      toast.success("Email send. Check your email.", {
+      toast.success("Email poslan. Provjerite svoj email.", {
         duration: 3000,
       });
       toast.dismiss(loadingToastId);
@@ -92,7 +92,7 @@ const Login = () => {
     } catch (error) {
       console.error("Error sending forgot password request:", error);
       if (error.response && error.response.status === 404) {
-        toast.error("User not found.", {
+        toast.error("Korisnik nije pornađen.", {
           duration: 3000,
         });
       }
@@ -102,7 +102,9 @@ const Login = () => {
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
-  }, []);
+  }, [])
+
+
 
   return (
     <div
@@ -115,22 +117,22 @@ const Login = () => {
     >
       <Toaster richColors position="top-right" />
       <div className="form bg-slate-50 p-8 rounded-lg space-y-4 w-full md:w-4/12 ">
-        <h1 className="text-3xl font-bold text-center p-2">Log In</h1>
+        <h1 className="text-3xl font-bold text-center p-2">Prijavi se</h1>
 
         <div className="input space-y-4">
           <Input
             isRequired
             type="email"
             label="Email"
-            placeholder="example@gmail.com"
+            placeholder="primjer@gmail.com"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
 
           <Input
             isRequired
-            label="Password"
-            placeholder="Enter your password"
+            label="Lozinka"
+            placeholder="Unesite svoju lozinku"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             endContent={
@@ -158,7 +160,7 @@ const Login = () => {
               style={{ textDecoration: "underline" }}
               onClick={onOpen}
             >
-              Forgot Password?
+              Zaboravili ste lozinku?
             </Link>
             <Modal
               isOpen={isOpen}
@@ -169,13 +171,13 @@ const Login = () => {
                 {(onClose) => (
                   <>
                     <ModalHeader className="flex flex-col gap-1">
-                      Forgot Password
+                    Zaboravili ste lozinku?
                     </ModalHeader>
                     <ModalBody>
                       <Input
                         autoFocus
                         label="Email"
-                        placeholder="Enter your email"
+                        placeholder="Unesite svoj email adresu"
                         variant="bordered"
                         value={forgotPasswordEmail}
                         onChange={(e) => setForgotPasswordEmail(e.target.value)}
@@ -183,7 +185,7 @@ const Login = () => {
                     </ModalBody>
                     <ModalFooter>
                       <Button color="danger" variant="flat" onPress={onClose}>
-                        Close
+                        Zatvori
                       </Button>
                       <Button
                         color="primary"
@@ -191,7 +193,7 @@ const Login = () => {
                           handleForgotPassword();
                         }}
                       >
-                        Send
+                        Pošalji
                       </Button>
                     </ModalFooter>
                   </>
@@ -200,17 +202,17 @@ const Login = () => {
             </Modal>
           </>
         </div>
-        <ButtonStyle onClick={handleLogin}>Log In</ButtonStyle>
+        <ButtonStyle onClick={handleLogin}>Prijavi se</ButtonStyle>
 
         <div className="form-link p-2 text-center">
           <span>
-            Don't have an account?{" "}
+            Nemate korisnički račun?{" "}
             <Link
               href="/signUp"
               className="link login"
               style={{ textDecoration: "underline" }}
             >
-              Sign Up
+              Registruj se
             </Link>
           </span>
         </div>

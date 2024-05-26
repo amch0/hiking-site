@@ -9,37 +9,29 @@ const InputForm = ({ onPasswordChange, onInputChange }) => {
         isRequired
         type="text"
         name="name"
-        label="Name"
-        placeholder="Name"
-        onChange={onInputChange}
-      />
-      <Input
-        isRequired
-        type="text"
-        name="surname"
-        label="Surname"
-        placeholder="Surname"
+        label="Ime"
+        placeholder="Ime"
         onChange={onInputChange}
       />
       <Input
         isRequired
         type="email"
-        name="mail"
+        name="email"
         label="Email"
-        placeholder="example@gmail.com"
+        placeholder="primjer@gmail.com"
         onChange={onInputChange}
       />
       <PasswordInput
-        label="Password"
+        label="Lozinka"
         name="password"
-        placeholder="Enter your password"
+        placeholder="Unesite svoju lozinku"
         onPasswordChange={onPasswordChange}
       />
       <Input
         isRequired
         type="text"
         name="phone_number"
-        label="Phone"
+        label="Broj Telefona"
         placeholder="+387******"
         onChange={onInputChange}
       />

@@ -1,11 +1,40 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import logo from "./assets/logo.png";
-import { Link, NavLink } from "react-router-dom";
-import { motion, AnimatePresence, MotionConfig } from "framer-motion";
-import { Avatar } from "@nextui-org/react";
+import { NavLink } from "react-router-dom";
+import { motion, AnimatePresence } from "framer-motion";
+import {
+  Avatar,
+  Button,
+  Dropdown,
+  DropdownTrigger,
+  DropdownMenu,
+  DropdownItem,
+  useDisclosure,
+} from "@nextui-org/react";
+import axios from "axios";
+import alternativeImage from "./assets/alternativaUser.png";
+import { useNavigate } from "react-router-dom";
+import DeleteAcc from "./userAccount/DeleteAcc";
+import CreateTourModal from "./CreateTour";
 
 function Navbar() {
   const [mobileNav, setMobileNav] = useState(false);
+  const [user, setUser] = useState(null);
+  const navigate = useNavigate();
+  const {
+    isOpen: isDeleteAccOpen,
+    onOpen: onDeleteAccOpen,
+    onClose: onDeleteAccClose,
+  } = useDisclosure();
+  const {
+    isOpen: isCreateTourOpen,
+    onOpen: onCreateTourOpen,
+    onClose: onCreateTourClose,
+  } = useDisclosure();
+
+  const handleMyProfileClick = () => {
+    navigate("/myAcc");
+  };
 
   const toggleMobileNav = () => {
     setMobileNav(!mobileNav);
@@ -15,41 +44,166 @@ function Navbar() {
     setMobileNav(false);
   };
 
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+
+    if (token) {
+      axios
+        .get("http://localhost:3000/users/by-token", {
+          headers: { Authorization: `${token}` },
+        })
+        .then((response) => {
+          setUser(response.data);
+        })
+        .catch((error) => {
+          console.error("Error fetching user information:", error);
+          localStorage.removeItem("token");
+        });
+    }
+  }, []);
+
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    setUser(null);
+    navigate("/");
+  };
+  const handleCreateTourClick = () => {
+    onCreateTourOpen();
+  };
+
   return (
     <header className="lg:mt-10 absolute w-full z-30">
-      <nav className="">
+      <nav>
         <div className="max-w-full mx-auto px-5 py-4 sm:px-12 sm:py-6 lg:px-12 3xl:px-28 relative">
           <div className="flex items-center justify-between">
             <NavLink to="/">
               <img src={logo} alt="Logo" className="h-20 w-20" />
             </NavLink>
-            <div className="hidden xl:flex nav-deco absolute z-50"></div>
-            <div className="hidden md:flex md:justify-center md:items-center text-white nav-text gap-10 navbar-bg  my-navbar ">
-              <NavLink to="/" activeclassname="active">
-                <span className="hidden lg:inline me-4 font-bold"></span>
-                POČETNA
+            <div className="hidden md:flex md:justify-center md:items-center text-white nav-text gap-10 navbar-bg my-navbar">
+              <NavLink to="/" activeclassname="active" className="nav-link">
+                <span className="hidden lg:inline me-4 font-bold">POČETNA</span>
               </NavLink>
+              <NavLink
+                to="/destination"
+                activeclassname="active"
+                className="nav-link"
+              >
+                <span className="hidden lg:inline me-4 font-bold">
+                  DESTINACIJE
+                </span>
+              </NavLink>
+              <NavLink to="/crew" activeclassname="active" className="nav-link">
+                <span className="hidden lg:inline me-4 font-bold">EKIPA</span>
+              </NavLink>
+              <NavLink
+                to="/equipment"
+                activeclassname="active"
+                className="nav-link"
+              >
+                <span className="hidden lg:inline me-4 font-bold">OPREMA</span>
+              </NavLink>
+              {user ? (
+                <>
+                  <Dropdown placement="bottom-end">
+                    <DropdownTrigger>
+                      <div className="flex items-center">
+                        <Avatar
+                          isBordered
+                          as="button"
+                          className="transition-transform"
+                          color="default"
+                          name={user.name}
+                          // size="sm"
+                          src={
+                            user.profile_picture
+                              ? `http://localhost:3000${user.profile_picture}`
+                              : alternativeImage
+                          }
+                        />
+                        <span className="ml-2 font-semibold">{user.name}</span>
+                      </div>
+                    </DropdownTrigger>
+                    <DropdownMenu aria-label="Profile Actions" variant="flat">
+                      <DropdownItem
+                        key="profile"
+                        className="h-14 gap-2"
+                        textValue={`Signed in as ${user.email}`}
+                      >
+                        <p
+                          className="font-semibold"
+                          style={{ color: "#C4841D" }}
+                        >
+                          Signed in as
+                        </p>
+                        <p
+                          className="font-semibold"
+                          style={{ color: "#C4841D" }}
+                        >
+                          {user.email}
+                        </p>
+                      </DropdownItem>
+                      <DropdownItem
+                        textValue="My Profile"
+                        key="settings"
+                        to="/myAcc"
+                        className="nav-link"
+                        onClick={handleMyProfileClick}
+                      >
+                        Moj Profil
+                      </DropdownItem>
+                      {user.type === "admin" && (
+                        <DropdownItem
+                          textValue="Kreiraj Turu"
+                          key="createTour"
+                          className="nav-link"
+                          onClick={handleCreateTourClick} // Use separate handler function
+                        >
+                          Kreiraj Turu
+                        </DropdownItem>
+                      )}
+                      <DropdownItem
+                        textValue="Delete Account"
+                        key="delete"
+                        className="nav-link"
+                        onClick={onDeleteAccOpen}
+                      >
+                        Obriši Nalog
+                      </DropdownItem>
 
-              <NavLink to="/destination" activeclassname="active">
-                <span className="hidden lg:inline me-4 font-bold"></span>
-                DESTINACIJE
-              </NavLink>
-
-              <NavLink to="/crew" activeclassname="active">
-                <span className="hidden lg:inline me-4 font-bold"></span>
-                EKIPA
-              </NavLink>
-
-              <NavLink to="/technology" activeclassname="active">
-                <span className="hidden lg:inline me-4 font-bold"></span>
-                TECHNOLOGY
-              </NavLink>
-              <NavLink to="/login" activeclassname="active">
-                <Avatar
-                  isBordered
-                  src="https://i.pravatar.cc/150?u=a04258114e29026708c"
-                />
-              </NavLink>
+                      <DropdownItem
+                        textValue="Log Out"
+                        key="logout"
+                        color="danger"
+                        onClick={handleLogout}
+                      >
+                        Odjavi Se
+                      </DropdownItem>
+                    </DropdownMenu>
+                  </Dropdown>
+                  <CreateTourModal
+                    isOpen={isCreateTourOpen}
+                    onClose={onCreateTourClose}
+                  />
+                  <DeleteAcc
+                    isOpen={isDeleteAccOpen}
+                    onClose={onDeleteAccClose}
+                  />
+                </>
+              ) : (
+                <>
+                  <NavLink to="/login">
+                    <div className="flex flex-wrap gap-4 items-center">
+                      <Button
+                        color="black"
+                        variant="faded"
+                        className="font-bold"
+                      >
+                        PRIJAVI SE
+                      </Button>
+                    </div>
+                  </NavLink>
+                </>
+              )}
             </div>
             <motion.button
               initial="hide"
@@ -95,103 +249,105 @@ function Navbar() {
             </motion.button>
           </div>
         </div>
+      </nav>
 
-        <nav
-          className="md:hidden flex justify-end nav-text text-white font-normal my-navbar"
-          id="mobile-nav"
-        >
-          <AnimatePresence>
-            {mobileNav && (
-              <MotionConfig
-                transition={{
-                  type: "spring",
-                  bounce: 0.1,
+      <nav
+        className="md:hidden flex justify-end nav-text text-white font-normal my-navbar"
+        id="mobile-nav"
+      >
+        <AnimatePresence>
+          {mobileNav && (
+            <motion.div
+              key="mobile-nav"
+              variants={{
+                hide: {
+                  y: "-100%",
+                  transition: {
+                    type: "spring",
+                    bounce: 0.1,
+                    staggerChildren: 0.1,
+                  },
+                },
+                show: {
+                  y: "0%",
+                  transition: {
+                    type: "spring",
+                    bounce: 0.1,
+                    when: "beforeChildren",
+                    staggerChildren: 0.1,
+                    duration: 0.1,
+                  },
+                },
+              }}
+              initial="hide"
+              animate="show"
+              exit="hide"
+              className="pt-24 navbar-bg h-screen"
+            >
+              <motion.ul
+                variants={{
+                  hide: {
+                    y: "10%",
+                    opacity: 0,
+                  },
+                  show: {
+                    y: "0%",
+                    opacity: 1,
+                  },
                 }}
+                className="list-none"
               >
-                <motion.div
-                  key="mobile-nav"
-                  variants={{
-                    hide: {
-                      y: "-100%",
-                      transition: {
-                        type: "spring",
-                        bounce: 0.1,
-                        staggerChildren: 0.1,
-                      },
-                    },
-                    show: {
-                      y: "0%",
-                      transition: {
-                        type: "spring",
-                        bounce: 0.1,
-                        when: "beforeChildren",
-                        staggerChildren: 0.1,
-                        duration: 0.1,
-                      },
-                    },
-                  }}
-                  initial="hide"
-                  animate="show"
-                  exit="hide"
-                  className="pt-24 navbar-bg h-screen"
-                >
-                  <motion.ul
-                    variants={{
-                      hide: {
-                        y: "10%",
-                        opacity: 0,
-                      },
-                      show: {
-                        y: "0%",
-                        opacity: 1,
-                      },
-                    }}
-                    className="list-none "
+                <li>
+                  <NavLink
+                    to="/"
+                    className="mx-6 pb-3 rounded-md nav-link"
+                    onClick={handleClose}
                   >
-                    <li>
-                      <NavLink
-                        to="/"
-                        className="mx-6 pb-3 rounded-md"
-                        onClick={handleClose}
-                      >
-                        <span className="pe-4 font-bold">00</span>HOME
-                      </NavLink>
-                    </li>
-                    <li>
-                      <NavLink
-                        to="/destination"
-                        className="mx-6 py-3 rounded-md"
-                        onClick={handleClose}
-                      >
-                        <span className="pe-4 font-bold">01</span>DESTINATION
-                      </NavLink>
-                    </li>
-                    <li>
-                      <NavLink
-                        to="/crew"
-                        className="mx-6 py-3 rounded-md"
-                        onClick={handleClose}
-                      >
-                        <span className="pe-4 font-bold">02</span>
-                        CREW
-                      </NavLink>
-                    </li>
-                    <li>
-                      <NavLink
-                        to="/technology"
-                        className=" mx-6 py-3 rounded-md"
-                        onClick={handleClose}
-                      >
-                        <span className="pe-4 font-bold">03</span>
-                        TECHNOLOGY
-                      </NavLink>
-                    </li>
-                  </motion.ul>
-                </motion.div>
-              </MotionConfig>
-            )}
-          </AnimatePresence>
-        </nav>
+                    <span className="pe-4 font-bold">00</span>HOME
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink
+                    to="/destination"
+                    className="mx-6 py-3 rounded-md nav-link"
+                    onClick={handleClose}
+                  >
+                    <span className="pe-4 font-bold">01</span>DESTINATION
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink
+                    to="/crew"
+                    className="mx-6 py-3 rounded-md nav-link"
+                    onClick={handleClose}
+                  >
+                    <span className="pe-4 font-bold">02</span>CREW
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink
+                    to="/equipment"
+                    className="mx-6 py-3 rounded-md nav-link"
+                    onClick={handleClose}
+                  >
+                    <span className="pe-4 font-bold">03</span>OPREMA
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink
+                    to="/login"
+                    className="mx-6 py-3 rounded-md"
+                    onClick={handleClose}
+                  >
+                    <Button color="black" variant="faded" className="font-bold">
+                      PRIJAVI SE
+                    </Button>
+                  </NavLink>
+                </li>
+              </motion.ul>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </nav>
     </header>
   );

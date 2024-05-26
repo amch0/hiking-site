@@ -5,7 +5,7 @@ import "./styles/navbar.css";
 import "./styles/home.css";
 import "./styles/destination.css";
 import "./styles/crew.css";
-import "./styles/technology.css";
+import "./styles/equipmetn.css";
 import Navbar from "./Navbar";
 import Home from "./homePage/homePage";
 import Login from "./signup-login/loginPage";
@@ -13,7 +13,7 @@ import Signup from "./signup-login/signupPage";
 import ResetPassword from "./signup-login/resetPassword";
 import Crew from "./homePage/components/Crew";
 import Destination from "./homePage/components/Destination";
-import Technology from "./homePage/components/Technology";
+import Equipment from "./homePage/components/Equipment";
 import CustomFooter from "./customFooter";
 function App() {
   const [selectedLink, setSelectedLink] = useState("");
@@ -32,8 +32,8 @@ function App() {
           element={<Crew setSelectedLink={setSelectedLink} />}
         />
         <Route
-          path="/technology"
-          element={<Technology setSelectedLink={setSelectedLink} />}
+          path="/equipment"
+          element={<Equipment setSelectedLink={setSelectedLink} />}
         />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />

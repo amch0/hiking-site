@@ -9,23 +9,24 @@ function Destination() {
   const { name, images, description, distance, travel } = planets[value];
 
   return (
-    <main className="destination-bg px-5 md:px-12 pb-16 lg:pb-0 xl:pb-20 pt-24 md:py-40 lg:px-40 lg:pt-52 h-full min-[912px]:h-screen ">
+    <main className="destination-bg px-5 md:px-12 pb-16 lg:pb-0 xl:pb-20 pt-24 md:py-40 lg:px-40 lg:pt-52 h-full ">
       <section className="flex flex-wrap justify-between h-full gap-8 md:gap-12 ">
-        <h1 className="section-heading md:text-start mx-auto md:m-0">
+        <h1 className="section-heading md:text-start mx-auto md:m-0 text-4xl lg:text-5xl">
           <span className="me-5 section-number"></span>
           PICK YOUR DESTINATION
         </h1>
-        <div className="w-full text-white flex flex-wrap justify-center md:justify-items-center lg:justify-between gap-8 lg:gap-32 lg:flex-nowrap 3xl:justify-around">
+        <div className="w-full text-white flex flex-wrap justify-center md:justify-items-center lg:justify-between gap-8 lg:gap-12 lg:flex-nowrap 3xl:justify-around">
           <motion.picture
             key={value}
             initial={{ opacity: 0, scale: 0.7 }}
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0 }}
             transition={{ duration: 0.8 }}
+            style={{ width: "40%" }}
           >
             <source srcSet={images.webp} type="image/webp" />
             <img
-              className="w-4/6 md:w-5/6 lg:w-full 3xl:w-[600px] mx-auto xl:ps-20"
+              className="w-full md:w-3/4 lg:w-[600px] xl:w-[600px] 3xl:w-[600px] mx-auto xl:ps-20"
               src={images.png}
               alt={name}
             />
@@ -51,19 +52,22 @@ function Destination() {
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, y: 30 }}
               transition={{ duration: 0.8 }}
+              style={{ width: "100%" }}
             >
-              <h2 className="section-title uppercase pt-6">{name}</h2>
+              <h2 className="section-title uppercase pt-4 text-2xl md:text-3xl lg:text-4xl">
+                {name}
+              </h2>
               <p className="md:mx-auto lg:mx-0 lg:text-start">{description}</p>
               <hr className="my-8 opacity-30" />
               <div className="flex flex-col md:flex-row justify-center lg:justify-start gap-6 md:gap-24">
                 <div>
-                  <h3 className="submenu-text">AVG. DISTANCE</h3>
+                  <h3 className="submenu-text">BROJ VRHOVA</h3>
                   <p className="uppercase text-white pt-4 font-bellefair text-[26px] lg:text-start 3xl:text-[34px]">
                     {distance}
                   </p>
                 </div>
                 <div>
-                  <h3 className="submenu-text">EST. TRAVEL TIME</h3>
+                  <h3 className="submenu-text">NAJVEĆI VRH</h3>
                   <p className="uppercase text-white pt-4 font-bellefair text-[26px] lg:text-start 3xl:text-[34px]">
                     {travel}
                   </p>

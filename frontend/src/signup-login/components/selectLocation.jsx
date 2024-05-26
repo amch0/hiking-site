@@ -16,8 +16,8 @@ const Location = ({ onLocationChange, selectedLocation }) => {
   return (
     <div className="location">
       <Select
-        label="City"
-        placeholder="Select city"
+        label="Lokacija"
+        placeholder="Lokacija"
         onSelectionChange={handleLocationChange}
         value={selectedLocation}
         items={selectItems}

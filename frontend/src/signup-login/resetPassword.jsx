@@ -15,7 +15,7 @@ const ResetPassword = () => {
   const isSmallScreen = useMediaQuery("(max-width: 48em)");
 
   const [formData, setFormData] = useState({
-    mail: "",
+    email: "",
     newPassword: "",
     confirmPassword: "",
   });
@@ -32,18 +32,18 @@ const ResetPassword = () => {
       !/[A-Z]/.test(formData.newPassword)
     ) {
       console.error("Your password is not valid");
-      toast.error("Your password is not valid");
+      toast.error("Vaša lozinka nije validna");
       return;
     }
     if (formData.newPassword !== formData.confirmPassword) {
       console.error("New password and confirm password do not match.");
-      toast.error("New password and confirm password do not match.");
+      toast.error("Nova lozinka i potvrđena lozinka se ne podudaraju.");
       return;
     }
 
     try {
       const response = await axios.post(
-        "http://localhost:8080/users/reset-password",
+        "http://localhost:3000/users/resetPassword",
         formData
       );
 
@@ -77,14 +77,15 @@ const ResetPassword = () => {
       >
         <div className="form bg-slate-50 p-8 rounded-lg space-y-4 w-full md:w-4/12 ">
           <h1 className="text-3xl font-bold text-center p-2">
-            Password Reset Successful
+            Šifra uspješno promijenjena
           </h1>
           {/* <p className="text-center">
             Your password has been successfully reset. Please go to the login
             page.
           </p> */}
           <span className="text-center">
-            Your password has been successfully reset. Please go to the{" "}
+            Vaša šifra je uspješno promijenjena i sačuvana u sistem. Nastavite
+            sa{" "}
             <Link
               href="/login"
               className="link login"
@@ -92,7 +93,6 @@ const ResetPassword = () => {
             >
               Login
             </Link>{" "}
-            page
           </span>
         </div>
       </div>
@@ -110,16 +110,16 @@ const ResetPassword = () => {
     >
       <Toaster richColors position="top-right" />
       <div className="form bg-slate-50 p-8 rounded-lg space-y-4 w-full md:w-4/12 ">
-        <h1 className="text-3xl font-bold text-center p-2">Reset Password</h1>
+        <h1 className="text-3xl font-bold text-center p-2">Reset Šifre</h1>
 
         <div className="input space-y-4">
           <Input
             isRequired
             type="email"
-            name="mail"
+            name="email"
             label="Email"
             placeholder="example@gmail.com"
-            value={formData.mail}
+            value={formData.email}
             onChange={handleChange}
           />
 
@@ -129,7 +129,7 @@ const ResetPassword = () => {
             value={formData.newPassword}
             onChange={handleChange}
             label="New password"
-            placeholder="Enter your password"
+            placeholder="Unesite novu šifru"
             endContent={
               <button
                 className="focus:outline-none"
@@ -152,7 +152,7 @@ const ResetPassword = () => {
             value={formData.confirmPassword}
             onChange={handleChange}
             label="Confirm password"
-            placeholder="Enter your password"
+            placeholder="Potvrdite šifru"
             endContent={
               <button
                 className="focus:outline-none"
@@ -170,7 +170,7 @@ const ResetPassword = () => {
           />
         </div>
 
-        <ButtonStyle onClick={handleSubmit}>Change Password</ButtonStyle>
+        <ButtonStyle onClick={handleSubmit}>Promijeni Šifru</ButtonStyle>
       </div>
     </div>
   );

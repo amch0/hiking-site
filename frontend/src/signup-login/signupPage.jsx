@@ -3,7 +3,6 @@ import { useMediaQuery } from "@react-hook/media-query";
 import backgroundImage from "../assets/background.jpg";
 import InputForm from "./components/inputForm";
 import Location from "./components/selectLocation";
-import CheckboxUser from "./components/checkbox";
 import ButtonStyle from "./components/button";
 import { RiImageAddLine } from "react-icons/ri";
 import { Link } from "@nextui-org/react";
@@ -14,7 +13,6 @@ const Signup = () => {
   const [image, setImage] = useState("");
   const [isValidPassword, setIsValidPassword] = useState(false);
   const [selectedLocation, setSelectedLocation] = useState(null);
-  const [selectedOption, setSelectedOption] = useState(null);
 
   const inputRef = useRef(null);
   const isSmallScreen = useMediaQuery("(max-width: 48em)");
@@ -23,15 +21,9 @@ const Signup = () => {
     console.log("Selected Location:", value);
   };
 
-  const handleCheckboxChange = (option) => {
-    setSelectedOption(option);
-    console.log("Selected Option:", option);
-  };
-
   const [formData, setFormData] = useState({
     name: "",
-    surname: "",
-    mail: "",
+    email: "",
     phone_number: "",
     password: "",
   });
@@ -69,14 +61,12 @@ const Signup = () => {
 
     if (
       !formData.name ||
-      !formData.surname ||
-      !formData.mail ||
+      !formData.email ||
       !formData.phone_number ||
       !isValidPassword ||
-      !selectedLocation ||
-      !selectedOption
+      !selectedLocation
     ) {
-      toast.error("Please provide all required fields", {
+      toast.error("Unesite sva obavezna polja", {
         duration: 3000,
       });
       return;
@@ -87,11 +77,8 @@ const Signup = () => {
       formDataToSend.append("name", formData.name);
       console.log("formDataToSend:", formData.name);
 
-      formDataToSend.append("surname", formData.surname);
-      console.log("formDataToSend:", formData.surname);
-
-      formDataToSend.append("mail", formData.mail);
-      console.log("formDataToSend:", formData.mail);
+      formDataToSend.append("email", formData.email);
+      console.log("formDataToSend:", formData.email);
 
       formDataToSend.append("phone_number", formData.phone_number);
       console.log("formDataToSend:", formData.phone_number);
@@ -102,17 +89,14 @@ const Signup = () => {
       formDataToSend.append("password", formData.password);
       console.log("formDataToSend:", formData.password);
 
-      formDataToSend.append("type", selectedOption);
-      console.log("formDataToSend:", selectedOption);
-
       if (image) {
         formDataToSend.append("profilePicture", image);
       }
 
       console.log("formDataToSend:", formDataToSend);
       console.log("formData:", formData);
-      const loadingToastId = toast.loading("Creating account");
-      const response = await fetch("http://localhost:8080/users/register", {
+      const loadingToastId = toast.loading("Kreiranje naloga");
+      const response = await fetch("http://localhost:3000/users/register", {
         method: "POST",
         body: formDataToSend,
       });
@@ -123,31 +107,34 @@ const Signup = () => {
       if (response.ok) {
         console.log("acc crated");
         toast.success(
-          "Account created successfully! Please verify your email.",
+          "Račun uspješno kreiran! Molimo potvrdite svoju email adresu.",
           {
             duration: 3000,
           }
         );
         toast.dismiss(loadingToastId);
         setTimeout(() => {
-          navigate("/");
+          navigate("/login");
         }, 3000);
       } else if (response.status === 409) {
         console.error("Email is already in use");
-        toast.error("Email is already in use. Please use a different email.", {
-          duration: 3000,
-        });
+        toast.error(
+          "Email adresa je već u upotrebi. Molimo koristite drugu adresu e-pošte.",
+          {
+            duration: 3000,
+          }
+        );
         toast.dismiss(loadingToastId);
       } else {
         console.error("Registration failed");
-        toast.error("Registration failed", {
+        toast.error("Registracija neuspješna", {
           duration: 3000,
         });
         toast.dismiss(loadingToastId);
       }
     } catch (error) {
       console.error("Error during registration:", error);
-      toast.error("Registration failed", {
+      toast.error("Registracija neuspješna", {
         duration: 3000,
       });
       toast.dismiss(loadingToastId);
@@ -168,8 +155,8 @@ const Signup = () => {
       }
     >
       <Toaster richColors position="top-right" />
-      <div className="form bg-slate-50 p-8 rounded-lg space-y-4 w-full md:w-4/12 h-3/4 overflow-y-auto">
-        <h1 className="text-3xl font-bold text-center p-2">Sign Up</h1>
+      <div className="form bg-slate-50 p-8 rounded-lg space-y-4 w-full md:w-4/12 h-3/4 overflow-y-auto mt-40">
+        <h1 className="text-3xl font-bold text-center p-2">Registracija</h1>
 
         <div
           onClick={handleImageClick}
@@ -202,23 +189,19 @@ const Signup = () => {
           selectedLocation={selectedLocation}
           onLocationChange={handleLocationChange}
         />
-        <CheckboxUser
-          selectedOption={selectedOption}
-          onCheckboxChange={handleCheckboxChange}
-        />
         <ButtonStyle disabled={!isValidPassword} onClick={handleSignUp}>
-          Sign Up
+          Registruj se
         </ButtonStyle>
 
         <div className="form-link p-2 text-center">
           <span>
-            Don't have an account?{" "}
+            Imate postojeći račun?{" "}
             <Link
               href="/login"
               className="link signup"
               style={{ textDecoration: "underline" }}
             >
-              Log In
+              Prijavi se
             </Link>
           </span>
         </div>

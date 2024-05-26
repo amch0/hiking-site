@@ -12,7 +12,7 @@ function Crew() {
     <main className="crew-bg px-5 md:px-12 pb-52 md:pb-0 lg:pb-0 pt-24 md:pt-40 lg:px-40 lg:pt-52 lg:relative min-[912px]:h-screen">
       <section className="md:pt-14 text-white flex flex-wrap justify-center md:flex-col md:items-center lg:justify-between md:gap-16 lg:flex lg:items-start lg:pt-0 lg:gap-32">
         <h1 className="section-heading text-center md:text-start mb-10 md:mb-14 lg:mb-0">
-          <span className="me-5 section-number">02</span>
+          <span className="me-5 section-number"></span>
           UPOZNAJTE NAŠU EKIPU
         </h1>
         <div className="md:order-last lg:basis-1/2 lg:absolute lg:right-10 lg:bottom-0  2xl:pe-40 3xl:pe-80">

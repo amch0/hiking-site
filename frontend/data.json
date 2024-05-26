@@ -3,118 +3,106 @@
     {
       "name": "BiH",
       "images": {
-        "png": "/destination/treskavica.jpg",
-        "webp": "/destination/treskavica.jpg"
+        "png": "/destination/bosna.png",
+        "webp": "/destination/bosna.png"
       },
-      "description": "See our planet as you’ve never seen it before. A perfect relaxing trip away to help regain perspective and come back refreshed. While you’re there, take in some history by visiting the Luna 2 and Apollo 11 landing sites.",
-      "distance": "12,400 km",
-      "travel": "1 days",
-      "mountains": [
-        {
-          "name": "Treskavica",
-          "image": "/destination/treskavica.jpg",
-          "description": "Treskavica is a mountain in Bosnia and Herzegovina, famous for its stunning peaks and beautiful lakes."
-        },
-        {
-          "name": "Bjelašnica",
-          "image": "/destination/treskavica.jpg",
-          "description": "Bjelašnica is known for its ski resort and was a venue for the 1984 Winter Olympics."
-        }
-      ]
+      "description": "Bosna i Hercegovina je savršena destinacija za ljubitelje planinarenja i prirodnih ljepota. Nudimo vam raznovrsne planinske ture koje će vas odvesti kroz neke od najveličanstvenijih krajolika u regiji. Otkrijte najviši vrh Maglić, uživajte u stazama Bjelašnice, skijajte na Jahorini, istražite 'Hercegovačke Himalaje' na Prenju, i doživite prirodne ljepote Treskavice. Naše ture pružaju nezaboravna iskustva u srcu prirode.",
+      "distance": "200/1.500 n.m.v.",
+      "travel": "Maglić 2.386 n.m.v."
     },
     {
       "name": "ITALIJA",
       "images": {
-        "png": "/destination/image-mars.png",
-        "webp": "/destination/image-mars.webp"
+        "png": "/destination/italija.png",
+        "webp": "/destination/italija.png"
       },
-      "description": "Don’t forget to pack your hiking boots. You’ll need them to tackle Olympus Mons, the tallest planetary mountain in our solar system. It’s two and a half times the size of Everest!",
-      "distance": "225 mil. km",
-      "travel": "9 months"
+      "description": "Italija oduševljava ljubitelje prirode svojim raznolikim planinskim krajolikom i spektakularnim vrhovima. Naše planinske ture vode vas kroz prekrasne staze i impozantne pejzaže. Osvojite vrh Monte Bianco, istražite ljepotu Dolomita ili uživajte u planinarenju kroz Monte Rosu. S našim stručnim vodičima, doživite nezaboravne trenutke u srcu talijanskih planina.",
+      "distance": "380/3.000 n.m.v.",
+      "travel": "Monte Bianco 4.808 n.m.v."
     },
     {
-      "name": "BUGARSKA",
+      "name": "AUSTRIJA",
       "images": {
-        "png": "/destination/image-europa.png",
-        "webp": "/destination/image-europa.webp"
+        "png": "/destination/austrija.png",
+        "webp": "/destination/austrija.png"
       },
-      "description": "The smallest of the four Galilean moons orbiting Jupiter, Europa is a winter lover’s dream. With an icy surface, it’s perfect for a bit of ice skating, curling, hockey, or simple relaxation in your snug wintery cabin.",
-      "distance": "628 mil. km",
-      "travel": "3 years"
+      "description": "Austrija je dom bajkovitih planinskih krajolika i spektakularnih alpskih vrhova. Naše planinske ture vode vas kroz čarobne staze i predivne pejzaže. Otkrijte ljepotu planine Erciyes Dagi, istražite mistične Dolomite ili osvojite vrh Gran Paradiso. Uz naše iskusne vodiče, uživajte u nezaboravnim avanturama u srcu austrijskih planina.",
+      "distance": "100/3.000 n.m.v.",
+      "travel": "Großglockne 3.798 n.m.v."
     },
     {
       "name": "TURSKA",
       "images": {
-        "png": "/destination/image-titan.png",
-        "webp": "/destination/image-titan.webp"
+        "png": "/destination/turska.png",
+        "webp": "/destination/turska.png"
       },
-      "description": "The only moon known to have a dense atmosphere other than Earth, Titan is a home away from home (just a few hundred degrees colder!). As a bonus, you get striking views of the Rings of Saturn.",
-      "distance": "1.6 bil. km",
-      "travel": "7 years"
+      "description": "Turska je raj za ljubitelje planinarenja i prirodnih ljepota. Naše planinske ture vode vas kroz spektakularne pejzaže i nevjerojatne vrhove. Otkrijte čari Erciyes Dagi, jednog od najviših vrhova, ili se popnite do vrha Tahtali Dagi s pogledom na Mediteran. Aladaglar Nacionalni park nudi izazovne staze i predivne pejzaže za istraživanje. S raznovrsnim planinskim stazama i prekrasnim pejzažima, Turska je destinacija koja pruža nezaboravna iskustva u srcu prirode.",
+      "distance": "400/2.500 n.m.v.",
+      "travel": "Mount Ararat 5.137 n.m.v."
     }
   ],
   "crew": [
     {
-      "name": "Douglas Hurley",
+      "name": "Sead Šutković",
       "images": {
-        "png": "/crew/image-douglas-hurley.png",
-        "webp": "/crew/image-douglas-hurley.webp"
+        "png": "/crew/sejo.png",
+        "webp": "/crew/sejo.png"
       },
-      "role": "Commander",
-      "bio": "Douglas Gerald Hurley is an American engineer, former Marine Corps pilot and former NASA astronaut. He launched into space for the third time as commander of Crew Dragon Demo-2."
+      "role": "Glavni vodič",
+      "bio": "Sead Šutković je iskusni vodič s položenim certifikatom za vođenje turističkih tura. Iza sebe ima brojne uspješno vođene ture. Njegovo poznavanje lokalne kulture i prirodnih ljepota, uz profesionalan pristup, čini ga idealnim vodičem za vašu sljedeću avanturu."
     },
     {
-      "name": "Mark Shuttleworth",
+      "name": "Amer Tatar",
       "images": {
-        "png": "/crew/image-mark-shuttleworth.png",
-        "webp": "/crew/image-mark-shuttleworth.webp"
+        "png": "/crew/amcho.png",
+        "webp": "/crew/amcho.png"
       },
-      "role": "Mission Specialist",
-      "bio": "Mark Richard Shuttleworth is the founder and CEO of Canonical, the company behind the Linux-based Ubuntu operating system. Shuttleworth became the first South African to travel to space as a space tourist."
+      "role": "Pomoćni vodič",
+      "bio": "Amer Tatar je talentovani pomoćni vodič s mnogo iskustva u turizmu. Njegova energija i entuzijazam doprinose svakom putovanju, a njegovo znanje o lokalnim atrakcijama i kulturi obogaćuje svako iskustvo. Amer je pouzdan i strastven vodič, uvijek spreman pomoći i učiniti vašu turu nezaboravnom."
     },
     {
-      "name": "Victor Glover",
+      "name": "Ahmed Halilović",
       "images": {
-        "png": "/crew/image-victor-glover.png",
-        "webp": "/crew/image-victor-glover.webp"
+        "png": "/crew/ahmo.png",
+        "webp": "/crew/ahmo.png"
       },
-      "role": "Pilot",
-      "bio": "Pilot on the first operational flight of the SpaceX Crew Dragon to the International Space Station. Glover is a commander in the U.S. Navy where he pilots an F/A-18.He was a crew member of Expedition 64, and served as a station systems flight engineer."
+      "role": "Pomoćni vodič",
+      "bio": "Ahmed Halilović je pouzdan pomoćni vodič s bogatim iskustvom u vođenju tura. Njegova posvećenost detaljima i prijateljski pristup čine svaku turu ugodnom i informativnom. Ahmedovo znanje o lokalnoj povijesti i prirodnim ljepotama osigurava da svaki posjetitelj doživi nezaboravno iskustvo."
     },
     {
-      "name": "Anousheh Ansari",
+      "name": "Ajna Hodžić",
       "images": {
-        "png": "/crew/image-anousheh-ansari.png",
-        "webp": "./crew/image-anousheh-ansari.webp"
+        "png": "/crew/ajna.png",
+        "webp": "./crew/ajna.png"
       },
-      "role": "Flight Engineer",
-      "bio": "Anousheh Ansari is an Iranian American engineer and co-founder of Prodea Systems. Ansari was the fourth self-funded space tourist, the first self-funded woman to fly to the ISS, and the first Iranian in space."
+      "role": "Glavni vodič",
+      "bio": "Ajna Hodžić je glavni vodič s položenim certifikatom za vođenje turističkih tura. Sa bogatim iskustvom i mnogim uspješno vođenim turama iza sebe, Ajna je stručnjak u pružanju nezaboravnih iskustava. Njena duboka posvećenost, poznavanje lokalne kulture i povijesti te sposobnost povezivanja s turistima čine je idealnim vodičem za vaše putovanje."
     }
   ],
-  "technology": [
-    {
-      "name": "Launch vehicle",
-      "images": {
-        "portrait": "/technology/image-launch-vehicle-portrait.jpg",
-        "landscape": "/technology/image-launch-vehicle-landscape.jpg"
-      },
-      "description": "A launch vehicle or carrier rocket is a rocket-propelled vehicle used to carry a payload from Earth's surface to space, usually to Earth orbit or beyond. Our WEB-X carrier rocket is the most powerful in operation. Standing 150 metres tall, it's quite an awe-inspiring sight on the launch pad!"
-    },
+  "equipment": [
     {
       "name": "LJETNA OPREMA",
       "images": {
-        "portrait": "/destination/treskavica.jpg",
-        "landscape": "/destination/treskavica.jpg"
+        "portrait": "/equipment/ljetna.png",
+        "landscape": "/equipment/ljetna.png"
       },
-      "description": "A spaceport or cosmodrome is a site for launching (or receiving) spacecraft, by analogy to the seaport for ships or airport for aircraft. Based in the famous Cape Canaveral, our spaceport is ideally situated to take advantage of the Earth’s rotation for launch."
+      "description": "Ljetna oprema koju nudimo savršena je za sve vaše avanture na otvorenom tokom toplih mjeseci. Uključuje laganu i prozračnu odjeću, šešire za zaštitu od sunca, sunčane naočale i obuću koja pruža udobnost i podršku. Naša ljetna oprema dizajnirana je tako da vam omogući maksimalnu udobnost i zaštitu tokom planinarenja, kampiranja ili bilo koje druge aktivnosti na otvorenom."
     },
     {
-      "name": "Space capsule",
+      "name": "ZIMSKA OPREMA",
       "images": {
-        "portrait": "/technology/image-space-capsule-portrait.jpg",
-        "landscape": "/technology/image-space-capsule-landscape.jpg"
+        "portrait": "/equipment/zimska.png",
+        "landscape": "/equipment/timska.png"
       },
-      "description": "A space capsule is an often-crewed spacecraft that uses a blunt-body reentry capsule to reenter the Earth's atmosphere without wings. Our capsule is where you'll spend your time during the flight. It includes a space gym, cinema, and plenty of other activities to keep you entertained."
+      "description": "Zimska oprema koju nudimo idealna je za hladne i snježne uvjete. Oprema uključuje tople i vodootporne jakne, rukavice, kape, termo donje rublje i čizme koje pružaju maksimalnu izolaciju i zaštitu. S našom zimskom opremom, možete uživati u planinarenju, skijanju ili bilo kojoj drugoj zimskoj aktivnosti bez brige o hladnoći i vlazi."
+    },
+    {
+      "name": "KAMP OPREMA",
+      "images": {
+        "portrait": "/equipment/kamp.png",
+        "landscape": "/equipment/kamp.png"
+      },
+      "description": "Naša kamp oprema uključuje sve što vam je potrebno za udoban i siguran boravak u prirodi. U ponudi imamo šatore, vreće za spavanje, prostirke za spavanje, kuhinjsku opremu za kampiranje, svjetiljke i još mnogo toga. S našom kamp opremom, vaš boravak na otvorenom bit će udoban i nezaboravan, omogućavajući vam da se u potpunosti povežete s prirodom."
     }
   ]
 }

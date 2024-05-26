@@ -1,5 +1,5 @@
 .destination-bg {
-  background-image: url(../assets/background.jpg);
+  background-image: url(../assets/background-destination-desktop.jpg);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -9,8 +9,8 @@
 
 .section-title {
   font-family: Bellefair;
-  font-size: 56px;
-  font-weight: 400;
+  font-size: 32px;
+  font-weight: 200;
   line-height: normal;
 }
 
@@ -30,6 +30,7 @@
   font-weight: 400;
   letter-spacing: 2.7px;
   text-transform: uppercase;
+  margin-bottom: 10px;
 }
 
 .submenu-text {
@@ -57,6 +58,7 @@
   background-color: var(--white);
   opacity: 0.5;
   transition: width 0.2s ease-out;
+  margin-top: 10px;
 }
 
 .submenu-btn:hover::before {
@@ -76,7 +78,7 @@
 
 @media only screen and (min-width: 640px) {
   .destination-bg {
-    background-image: url(../assets/background.jpg);
+    background-image: url(../assets/background-destination-desktop.jpg);
     height: 100vh;
   }
   .section-heading,
@@ -95,15 +97,16 @@
 
 @media only screen and (min-width: 769px) {
   .destination-bg {
-    background-image: url(../assets/background.jpg);
+    background-image: url(./destination/background_destitation.jpg);
   }
   .section-heading,
   .section-number {
     font-size: 28px;
     letter-spacing: 4.725px;
+    margin-bottom: 0; /* Uklanjamo donju marginu */
   }
-  .section-title {
-    font-size: 100px;
+  .submenu-btn {
+    margin-top: -20px; /* Podižemo gornji margin da sekcija bude bliže navigaciji */
   }
 }
 
