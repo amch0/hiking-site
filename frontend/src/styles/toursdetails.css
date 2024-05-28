@@ -1,0 +1,126 @@
+.tour-details-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  padding-top: 32px;
+  background: linear-gradient(to bottom, #2c3e50 0%, #f8f9fa 100%);
+}
+
+.tour-card {
+  max-width: 800px;
+  width: 100%;
+  margin: 1rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: #ffffff;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.tour-card-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+  border-bottom: 1px solid #eaeaea;
+}
+
+.tour-card-header h1,
+.tour-card-header h2 {
+  color: #2c3e50;
+  font-family: "Barlow Condensed", sans-serif;
+  text-transform: uppercase;
+}
+
+.tour-card-header h1 {
+  font-size: 2rem;
+}
+
+.tour-card-header h2 {
+  font-size: 1.5rem;
+}
+
+.tour-card-body {
+  padding: 1rem 2rem;
+}
+
+.tour-card-body p {
+  color: #7f8c8d;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.tour-info-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+.tour-info-grid div {
+  display: flex;
+  align-items: center;
+  color: #2c3e50;
+  font-size: 1rem;
+}
+
+.tour-info-grid div strong {
+  margin-left: 0.5rem;
+}
+
+.icon {
+  width: 24px;
+  height: 24px;
+  color: #2980b9;
+  margin-right: 0.5rem;
+}
+.comments-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  padding: 2rem;
+}
+
+.tour-card {
+  width: 100%;
+}
+@media (min-width: 768px) {
+  .tour-info-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media only screen and (min-width: 640px) {
+  .tour-card-header h1 {
+    font-size: 2.5rem;
+  }
+  .tour-card-header h2 {
+    font-size: 2rem;
+  }
+  .tour-info-grid div {
+    font-size: 1.1rem;
+  }
+}
+
+@media only screen and (min-width: 769px) {
+  .tour-card-header h1 {
+    font-size: 3rem;
+  }
+  .tour-card-header h2 {
+    font-size: 2.5rem;
+  }
+  .tour-info-grid div {
+    font-size: 1.2rem;
+  }
+}
+
+@media only screen and (min-width: 1920px) {
+  .tour-card-header h1 {
+    font-size: 3.5rem;
+  }
+  .tour-card-header h2 {
+    font-size: 3rem;
+  }
+  .tour-info-grid div {
+    font-size: 1.4rem;
+  }
+}

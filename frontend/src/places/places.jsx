@@ -33,11 +33,13 @@ const Places = () => {
 
   const fetchTours = async (tab, page) => {
     try {
-      const response = await axios.get(
-        `http://localhost:3000/tours/?page=${page}&limit=4&status=active&type=${
-          tab === "Internacionalne" ? "Internacionalna" : tab
-        }`
-      );
+      let url = `http://localhost:3000/tours/?page=${page}&limit=8&status=active&type=${
+        tab === "Internacionalne" ? "Internacionalna" : tab
+      }`;
+      if (tab === "Zavrsene") {
+        url = `http://localhost:3000/tours?page=${page}&limit=10&status=done`;
+      }
+      const response = await axios.get(url);
       console.log(response.data); // Log the response data
       setTours(response.data.tours);
       setTotalPages(response.data.totalPages); // Ensure the response has totalPages
@@ -55,7 +57,7 @@ const Places = () => {
     <div className="w-4/5 m-auto cursor-default">
       <div className="my-10 text-center">
         <h1 ref={headingRef} className="text-4xl font-bold text-white">
-          Aktivne Ture
+          Planinarske Ture
         </h1>
         <div className="flex gap-12 justify-center lg:justify-start my-6">
           <button
@@ -73,6 +75,14 @@ const Places = () => {
             onClick={() => handleTabChange("Internacionalne")}
           >
             Internacionalne
+          </button>
+          <button
+            className={`submenu-text submenu-btn uppercase ${
+              selectedTab === "Zavrsene" ? "active" : ""
+            }`}
+            onClick={() => handleTabChange("Zavrsene")}
+          >
+            Zavrsene ture
           </button>
         </div>
         <AnimatePresence mode="wait">
@@ -108,12 +118,16 @@ const Places = () => {
                         <h2 className="text-base font-medium text-indigo-300 mb-1">
                           {formatDate(tour.date)}
                         </h2>
-                        <h2 className="text-white leading-relaxed mb-1">
-                          {tour.price}
-                        </h2>
-                        <h2 className="text-gray-300 leading-relaxed mb-3">
-                          {tour.remaining_space} slobodnih mjesta
-                        </h2>
+                        {selectedTab !== "Zavrsene" && (
+                          <h2 className="text-white leading-relaxed mb-1">
+                            {tour.price}
+                          </h2>
+                        )}
+                        {selectedTab !== "Zavrsene" && (
+                          <h2 className="text-gray-300 leading-relaxed mb-3">
+                            {tour.remaining_space} slobodnih mjesta
+                          </h2>
+                        )}
                         <div className="flex items-center flex-wrap ">
                           <a
                             className="cursor-pointer text-indigo-300 inline-flex items-center md:mb-2 lg:mb-0"

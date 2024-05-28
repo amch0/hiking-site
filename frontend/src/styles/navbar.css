@@ -53,6 +53,29 @@
   background-color: white;
 }
 
+@media only screen and (min-width: 510px) {
+  .nav-text {
+    font-size: 14px;
+    letter-spacing: 2.362px;
+  }
+  .navbar-bg {
+    height: 100%;
+    width: 280px;
+    top: 0px;
+    right: 0px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 6px 12px -2px;
+  }
+  .my-navbar a::before {
+    bottom: 3px;
+  }
+  .my-navbar a:hover::before,
+  .my-navbar a:active::before,
+  .my-navbar a:focus::before {
+    width: 100%;
+   
+  }
+}
+
 @media only screen and (min-width: 640px) {
   .nav-text {
     font-size: 14px;
@@ -60,18 +83,19 @@
   }
   .navbar-bg {
     height: 100%;
-    width: 450px;
+    width: 300px;
     top: 0px;
     right: 0px;
     box-shadow: rgba(0, 0, 0, 0.25) 0px 6px 12px -2px;
   }
   .my-navbar a::before {
-    bottom: 2px;
+    bottom: 5px;
   }
   .my-navbar a:hover::before,
   .my-navbar a:active::before,
   .my-navbar a:focus::before {
     width: 100%;
+   
   }
 }
 

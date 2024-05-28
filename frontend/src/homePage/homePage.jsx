@@ -14,7 +14,7 @@ function Home() {
             exit={{ opacity: 0 }}
             transition={{ duration: 1.2 }}
           >
-            <h2 className="lg:text-start main-subheading text-[20px] lg:text-[28px] 3xl:text-[34px]">
+            <h2 className="lg:text-start text-black main-subheading text-[20px] lg:text-[28px] 3xl:text-[34px]">
               Zavirite u Divljinu
             </h2>
             <h1 className="main-title text-center lg:text-start text-[80px] md:text-[150px] md:leading-[150px] 3xl:text-[200px] 3xl:py-14">

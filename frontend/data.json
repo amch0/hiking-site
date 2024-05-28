@@ -104,5 +104,16 @@
       },
       "description": "Naša kamp oprema uključuje sve što vam je potrebno za udoban i siguran boravak u prirodi. U ponudi imamo šatore, vreće za spavanje, prostirke za spavanje, kuhinjsku opremu za kampiranje, svjetiljke i još mnogo toga. S našom kamp opremom, vaš boravak na otvorenom bit će udoban i nezaboravan, omogućavajući vam da se u potpunosti povežete s prirodom."
     }
+  ],
+  "aboutUsData": [
+    {
+      "title": "Info",
+      "description": "This is the information about our organiz"
+    },
+    {
+      "title": "Kontakt",
+
+      "description": "Here is how you can contact us..."
+    }
   ]
 }

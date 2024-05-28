@@ -13,7 +13,7 @@ function Destination() {
       <section className="flex flex-wrap justify-between h-full gap-8 md:gap-12 ">
         <h1 className="section-heading md:text-start mx-auto md:m-0 text-4xl lg:text-5xl">
           <span className="me-5 section-number"></span>
-          PICK YOUR DESTINATION
+          RAZNOVRSNE DESTINACIJE
         </h1>
         <div className="w-full text-white flex flex-wrap justify-center md:justify-items-center lg:justify-between gap-8 lg:gap-12 lg:flex-nowrap 3xl:justify-around">
           <motion.picture

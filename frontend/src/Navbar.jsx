@@ -79,7 +79,7 @@ function Navbar() {
             <NavLink to="/">
               <img src={logo} alt="Logo" className="h-20 w-20" />
             </NavLink>
-            <div className="hidden md:flex md:justify-center md:items-center text-white nav-text gap-10 navbar-bg my-navbar">
+            <div className="hidden lg:flex lg:justify-center lg:items-center text-white nav-text gap-10 navbar-bg my-navbar w-3/4">
               <NavLink to="/" activeclassname="active" className="nav-link">
                 <span className="hidden lg:inline me-4 font-bold">POČETNA</span>
               </NavLink>
@@ -101,6 +101,13 @@ function Navbar() {
                 className="nav-link"
               >
                 <span className="hidden lg:inline me-4 font-bold">OPREMA</span>
+              </NavLink>
+              <NavLink
+                to="/about"
+                activeclassname="active"
+                className="nav-link"
+              >
+                <span className="hidden lg:inline me-4 font-bold">KONTAKT</span>
               </NavLink>
               {user ? (
                 <>
@@ -142,7 +149,7 @@ function Navbar() {
                           {user.email}
                         </p>
                       </DropdownItem>
-                      <DropdownItem
+                      {/* <DropdownItem
                         textValue="My Profile"
                         key="settings"
                         to="/myAcc"
@@ -150,7 +157,7 @@ function Navbar() {
                         onClick={handleMyProfileClick}
                       >
                         Moj Profil
-                      </DropdownItem>
+                      </DropdownItem> */}
                       {user.type === "admin" && (
                         <DropdownItem
                           textValue="Kreiraj Turu"
@@ -195,8 +202,8 @@ function Navbar() {
                     <div className="flex flex-wrap gap-4 items-center">
                       <Button
                         color="black"
+                        className="hidden lg:inline me-4 font-bold"
                         variant="faded"
-                        className="font-bold"
                       >
                         PRIJAVI SE
                       </Button>
@@ -209,7 +216,7 @@ function Navbar() {
               initial="hide"
               animate={mobileNav ? "show" : "hide"}
               onClick={toggleMobileNav}
-              className="flex flex-col space-y-2 relative z-10 md:hidden"
+              className="flex flex-col space-y-2 relative z-10 lg:hidden"
             >
               <motion.span
                 variants={{
@@ -252,7 +259,7 @@ function Navbar() {
       </nav>
 
       <nav
-        className="md:hidden flex justify-end nav-text text-white font-normal my-navbar"
+        className="lg:hidden flex justify-end nav-text text-white font-normal my-navbar"
         id="mobile-nav"
       >
         <AnimatePresence>
@@ -297,6 +304,95 @@ function Navbar() {
                 }}
                 className="list-none"
               >
+                {user && (
+                  <li>
+                    <Dropdown placement="bottom-end">
+                      <DropdownTrigger>
+                        <div className="mx-6 pb-3 flex items-center mb-6">
+                          <Avatar
+                            isBordered
+                            as="button"
+                            className="transition-transform"
+                            color="default"
+                            name={user.name}
+                            // size="sm"
+                            src={
+                              user.profile_picture
+                                ? `http://localhost:3000${user.profile_picture}`
+                                : alternativeImage
+                            }
+                          />
+                          <span className="ml-4 font-semibold">
+                            {user.name}
+                          </span>
+                        </div>
+                      </DropdownTrigger>
+                      <DropdownMenu aria-label="Profile Actions" variant="flat">
+                        <DropdownItem
+                          key="profile"
+                          className="h-14 gap-2"
+                          textValue={`Signed in as ${user.email}`}
+                        >
+                          <p
+                            className="font-semibold"
+                            style={{ color: "#C4841D" }}
+                          >
+                            Signed in as
+                          </p>
+                          <p
+                            className="font-semibold"
+                            style={{ color: "#C4841D" }}
+                          >
+                            {user.email}
+                          </p>
+                        </DropdownItem>
+                        {/* <DropdownItem
+                          textValue="My Profile"
+                          key="settings"
+                          to="/myAcc"
+                          className="nav-link"
+                          onClick={handleMyProfileClick}
+                        >
+                          Moj Profil
+                        </DropdownItem> */}
+                        {user.type === "admin" && (
+                          <DropdownItem
+                            textValue="Kreiraj Turu"
+                            key="createTour"
+                            className="nav-link"
+                            onClick={handleCreateTourClick}
+                          >
+                            Kreiraj Turu
+                          </DropdownItem>
+                        )}
+                        <DropdownItem
+                          textValue="Delete Account"
+                          key="delete"
+                          className="nav-link"
+                          onClick={onDeleteAccOpen}
+                        >
+                          Obriši Nalog
+                        </DropdownItem>
+                        <DropdownItem
+                          textValue="Log Out"
+                          key="logout"
+                          color="danger"
+                          onClick={handleLogout}
+                        >
+                          Odjavi Se
+                        </DropdownItem>
+                      </DropdownMenu>
+                    </Dropdown>
+                    <CreateTourModal
+                      isOpen={isCreateTourOpen}
+                      onClose={onCreateTourClose}
+                    />
+                    <DeleteAcc
+                      isOpen={isDeleteAccOpen}
+                      onClose={onDeleteAccClose}
+                    />
+                  </li>
+                )}
                 <li>
                   <NavLink
                     to="/"
@@ -335,15 +431,31 @@ function Navbar() {
                 </li>
                 <li>
                   <NavLink
-                    to="/login"
-                    className="mx-6 py-3 rounded-md"
+                    to="/about"
+                    className="mx-6 py-3 rounded-md nav-link"
                     onClick={handleClose}
                   >
-                    <Button color="black" variant="faded" className="font-bold">
-                      PRIJAVI SE
-                    </Button>
+                    <span className="pe-4 font-bold">04</span>KONTAKT
                   </NavLink>
                 </li>
+
+                {!user && (
+                  <li>
+                    <NavLink
+                      to="/login"
+                      className="mx-6 py-3 rounded-md mt-6"
+                      onClick={handleClose}
+                    >
+                      <Button
+                        color="black"
+                        variant="faded"
+                        className="font-bold"
+                      >
+                        PRIJAVI SE
+                      </Button>
+                    </NavLink>
+                  </li>
+                )}
               </motion.ul>
             </motion.div>
           )}

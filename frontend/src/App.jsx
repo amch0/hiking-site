@@ -6,6 +6,8 @@ import "./styles/home.css";
 import "./styles/destination.css";
 import "./styles/crew.css";
 import "./styles/equipmetn.css";
+import "./styles/about.css";
+import "./styles/toursdetails.css";
 import Navbar from "./Navbar";
 import Home from "./homePage/homePage";
 import Login from "./signup-login/loginPage";
@@ -14,6 +16,7 @@ import ResetPassword from "./signup-login/resetPassword";
 import Crew from "./homePage/components/Crew";
 import Destination from "./homePage/components/Destination";
 import Equipment from "./homePage/components/Equipment";
+import AboutUs from "./homePage/components/AboutUs";
 import TourDetails from "./tours/TourDetails";
 import CustomFooter from "./customFooter";
 function App() {
@@ -37,6 +40,7 @@ function App() {
           path="/equipment"
           element={<Equipment setSelectedLink={setSelectedLink} />}
         />
+        <Route path="/about" element={<AboutUs />} />
         <Route path="/route/:routeId" element={<TourDetails />} />
 
         <Route path="/login" element={<Login />} />

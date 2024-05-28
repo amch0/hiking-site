@@ -1,0 +1,8 @@
+.about-bg {
+  background-image: url(../about/background_about.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100%;
+  mix-blend-mode: screen;
+  background-attachment: fixed;
+}
