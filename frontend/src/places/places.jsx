@@ -40,9 +40,9 @@ const Places = () => {
         url = `http://localhost:3000/tours?page=${page}&limit=10&status=done`;
       }
       const response = await axios.get(url);
-      console.log(response.data); // Log the response data
+      console.log(response.data);
       setTours(response.data.tours);
-      setTotalPages(response.data.totalPages); // Ensure the response has totalPages
+      setTotalPages(response.data.totalPages);
     } catch (error) {
       console.error("Error fetching tours:", error);
     }

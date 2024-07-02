@@ -399,7 +399,7 @@ function Navbar() {
                     className="mx-6 pb-3 rounded-md nav-link"
                     onClick={handleClose}
                   >
-                    <span className="pe-4 font-bold">00</span>HOME
+                    <span className="pe-4 font-bold">00</span>POČETNA
                   </NavLink>
                 </li>
                 <li>
@@ -408,7 +408,7 @@ function Navbar() {
                     className="mx-6 py-3 rounded-md nav-link"
                     onClick={handleClose}
                   >
-                    <span className="pe-4 font-bold">01</span>DESTINATION
+                    <span className="pe-4 font-bold">01</span>DESTINACIJE
                   </NavLink>
                 </li>
                 <li>
@@ -417,7 +417,7 @@ function Navbar() {
                     className="mx-6 py-3 rounded-md nav-link"
                     onClick={handleClose}
                   >
-                    <span className="pe-4 font-bold">02</span>CREW
+                    <span className="pe-4 font-bold">02</span>EKIPA
                   </NavLink>
                 </li>
                 <li>

@@ -43,7 +43,7 @@ const DeleteAcc = ({ isOpen, onClose }) => {
           {(onClose) => (
             <>
               <ModalHeader className="flex flex-col gap-1">
-              Jeste li sigurni da želite izbrisati svoj račun?
+                Jeste li sigurni da želite izbrisati svoj račun?
               </ModalHeader>
 
               <ModalFooter>

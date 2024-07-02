@@ -54,23 +54,27 @@ function Destination() {
               transition={{ duration: 0.8 }}
               style={{ width: "100%" }}
             >
-              <h2 className="section-title uppercase pt-4 text-2xl md:text-3xl lg:text-4xl">
-                {name}
-              </h2>
-              <p className="md:mx-auto lg:mx-0 lg:text-start">{description}</p>
-              <hr className="my-8 opacity-30" />
-              <div className="flex flex-col md:flex-row justify-center lg:justify-start gap-6 md:gap-24">
-                <div>
-                  <h3 className="submenu-text">BROJ VRHOVA</h3>
-                  <p className="uppercase text-white pt-4 font-bellefair text-[26px] lg:text-start 3xl:text-[34px]">
-                    {distance}
-                  </p>
-                </div>
-                <div>
-                  <h3 className="submenu-text">NAJVEĆI VRH</h3>
-                  <p className="uppercase text-white pt-4 font-bellefair text-[26px] lg:text-start 3xl:text-[34px]">
-                    {travel}
-                  </p>
+              <div className="card bg-black mt-4 p-2 rounded-lg shadow-lg">
+                <h2 className="section-title uppercase pt-4 text-2xl md:text-3xl lg:text-4xl">
+                  {name}
+                </h2>
+                <p className="md:mx-auto lg:mx-0 lg:text-justify">
+                  {description}
+                </p>
+                <hr className="my-8 opacity-30" />
+                <div className="flex flex-col md:flex-row justify-center lg:justify-start gap-6 md:gap-24">
+                  <div>
+                    <h3 className="submenu-text">BROJ VRHOVA</h3>
+                    <p className="uppercase text-white pt-4 font-bellefair text-[26px] lg:text-start 3xl:text-[34px]">
+                      {distance}
+                    </p>
+                  </div>
+                  <div>
+                    <h3 className="submenu-text">NAJVEĆI VRH</h3>
+                    <p className="uppercase text-white pt-4 font-bellefair text-[26px] lg:text-start 3xl:text-[34px]">
+                      {travel}
+                    </p>
+                  </div>
                 </div>
               </div>
             </motion.div>
