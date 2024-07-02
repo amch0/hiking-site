@@ -44,9 +44,7 @@ const Users = sequelize.define(
       allowNull: false,
     },
   },
-  {
-    // Other model options go here
-  }
+  {}
 );
 
 module.exports = Users;

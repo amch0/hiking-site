@@ -1,8 +1,7 @@
 const { DataTypes } = require("sequelize");
 const sequelize = require("../db");
-const Users = require("./Users"); // Assuming the Users model file path
-const Tours = require("./Tours"); // Assuming the Tours model file path
-
+const Users = require("./Users");
+const Tours = require("./Tours");
 const UserTours = sequelize.define(
   "UserTour",
   {

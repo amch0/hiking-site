@@ -47,9 +47,7 @@ const Comments = sequelize.define(
       defaultValue: DataTypes.NOW,
     },
   },
-  {
-    // Other model options go here
-  }
+  {}
 );
 
 Users.hasMany(Comments, { foreignKey: "userId" });
